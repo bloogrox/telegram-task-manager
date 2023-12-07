@@ -1,1 +1,1 @@
-# telegram-task-manager
+# Telegram Task Manager
