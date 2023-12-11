@@ -6,3 +6,5 @@ services:
     image: sandbox/telegram-task-tracker
     volumes:
       - .:/app
+    env_file:
+      - .env
