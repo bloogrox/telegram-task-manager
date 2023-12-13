@@ -2,7 +2,7 @@ import os
 import asyncio
 import logging
 from aiogram import Bot, Dispatcher
-from handlers import router
+from handlers import echo, home, start
 
 
 logging.basicConfig(level=logging.INFO)
@@ -18,7 +18,11 @@ async def main():
     bot: Bot = Bot(token=API_TOKEN)
     dp: Dispatcher = Dispatcher()
 
-    dp.include_router(router)
+    dp.include_routers(
+        start.router,
+        home.router,
+        echo.router,
+    )
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
